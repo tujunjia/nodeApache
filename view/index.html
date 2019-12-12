@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="/public/css/index.css">
+
+  <script src="/public/js/index.js"></script>
+  <title></title>
+</head>
+<body>
+  <h1>您好！欢迎来到主页</h1>
+  <h2>hello word</h2>
+  <h3>静态资源的加载</h3>
+  <img src="/public/img/1.png" />    
+  <img src="/public/img/3.png" />    
+  <div class="box">
+      {{each data}}
+      <div class="item">{{$index}} {{$value}}</div>
+      {{/each}}
+      <hr>
+      <% for(var i = 0; i < data.length; i++){ %>
+        <div class="item"><%= i %> <%= data[i] %></div>
+      <% } %>
+  </div>
+  <a href="/item/">item</a>
+</body>
+</html>
