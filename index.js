@@ -6,6 +6,8 @@ var fs = require('fs')
 var aTemplate = require("art-template");
 
 
+var urlperson = require('url')
+
 
 
 //创建一个http服务
@@ -15,8 +17,11 @@ server.on('request',function(req, res){
   
   res.setHeader('Content-Type', 'text/html');  //设置数据返回的格式
   var url = req.url
+  var pathurl = urlperson.parse(url)
+  var pathurl = pathurl.pathname
+  console.log(pathurl)
   console.log(url)
-  if (url === '/') {
+  if (pathurl === '/') {
     fs.readFile('./view/index.html',function(error,data){
       if (error) {
         console.log('index.html 文件读取错误')
@@ -26,7 +31,7 @@ server.on('request',function(req, res){
       res.end(data)
 
     })
-  } else if ( url.indexOf('/public/') === 0) {
+  } else if ( pathurl.indexOf('/public/') === 0) {
     fs.readFile('.' + url, function(error, data){
       if (error) {
         console.log('public静态读取错误')
@@ -35,7 +40,7 @@ server.on('request',function(req, res){
       res.setHeader('Content-Type', 'text/css');  //设置数据返回的格式
       return res.end (data)
     })
-  } else if (url === '/www') {
+  } else if (pathurl === '/www') {
     
       fs.readFile('./view/index.html', function (error, data) {
         if (error) {
@@ -56,7 +61,7 @@ server.on('request',function(req, res){
         res.end(htmlStr)
       })
     })
-  } else if (url === '/item/') {
+  } else if (pathurl === '/item/') {
     console.log('来到item页面')
     fs.readFile('./view/item.html', function(error, data){
     if (error) {
