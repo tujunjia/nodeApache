@@ -42,7 +42,7 @@ server.on('request',function(req, res){
     })
   } else if (pathurl === '/www') {
     
-      fs.readFile('./view/index.html', function (error, data) {
+      fs.readFile('./view/item.html', function (error, data) {
         if (error) {
           return res.end('模板文件index.html读取错误')
         }
