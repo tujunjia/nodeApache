@@ -8,8 +8,8 @@ var aTemplate = require("art-template");
 
 var urlperson = require('url')
 
-
-
+//www目录地址path
+var wwwpath = 'D:\\www\\nodeApache'
 //创建一个http服务
 var server = http.createServer()
 
@@ -19,6 +19,7 @@ server.on('request',function(req, res){
   var url = req.url
   var pathurl = urlperson.parse(url)
   var pathurall = urlperson.parse(url) 
+  
   var pathurl = pathurl.pathname
   // console.log(pathurl)
   // console.log(url)
@@ -28,8 +29,20 @@ server.on('request',function(req, res){
         console.log('index.html 文件读取错误')
         return res.end ('404 nont found.')
       }
-      res.setHeader('Content-Length',Buffer.byteLength(data))  //设置返回数据的长度 
-      res.end(data)
+      fs.readdir(wwwpath,function(error,datainner){
+        if (error) {
+          console.log('文件夹读取错误')
+          return res.end('文件读取错误')
+        }
+        data = data.toString()
+        console.log(datainner)
+        var htmlStr = aTemplate.render(data,{
+          data : datainner,
+        })
+        console.log(htmlStr)
+        // res.setHeader('Content-Length',Buffer.byteLength(htmlStr))  //设置返回数据的长度 
+        res.end(htmlStr)
+      })
     })
   } else if ( pathurl.indexOf('/public/') === 0) {
     fs.readFile('.' + url, function(error, data){
@@ -71,7 +84,8 @@ server.on('request',function(req, res){
    })
   }  else if (pathurl === '/published/') {
     var pramas = pathurall.query
-    console.log(pramas)
+    console.log(pathurall)
+    // console.log(pramas)
     console.log('sssssssssssss')
     res.statusCode = 302
     res.setHeader('location','/')
