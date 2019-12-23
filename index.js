@@ -18,9 +18,10 @@ server.on('request',function(req, res){
   res.setHeader('Content-Type', 'text/html');  //设置数据返回的格式
   var url = req.url
   var pathurl = urlperson.parse(url)
+  var pathurall = urlperson.parse(url) 
   var pathurl = pathurl.pathname
-  console.log(pathurl)
-  console.log(url)
+  // console.log(pathurl)
+  // console.log(url)
   if (pathurl === '/') {
     fs.readFile('./view/index.html',function(error,data){
       if (error) {
@@ -29,7 +30,6 @@ server.on('request',function(req, res){
       }
       res.setHeader('Content-Length',Buffer.byteLength(data))  //设置返回数据的长度 
       res.end(data)
-
     })
   } else if ( pathurl.indexOf('/public/') === 0) {
     fs.readFile('.' + url, function(error, data){
@@ -69,8 +69,15 @@ server.on('request',function(req, res){
     }
     res.end (data)
    })
+  }  else if (pathurl === '/published/') {
+    var pramas = pathurall.query
+    console.log(pramas)
+    console.log('sssssssssssss')
+    res.statusCode = 302
+    res.setHeader('location','/')
+    res.end()
   } else {  
-    console.log('来到404页面')
+    // console.log('来到404页面')
     fs.readFile('./view/404.html', function(error, data){
     if (error) {
       return res.end ('404 cosole')
