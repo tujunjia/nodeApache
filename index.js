@@ -35,11 +35,11 @@ server.on('request',function(req, res){
           return res.end('文件读取错误')
         }
         data = data.toString()
-        console.log(datainner)
+        // console.log(datainner)
         var htmlStr = aTemplate.render(data,{
           data : datainner,
         })
-        console.log(htmlStr)
+        // console.log(htmlStr)
         // res.setHeader('Content-Length',Buffer.byteLength(htmlStr))  //设置返回数据的长度 
         res.end(htmlStr)
       })
