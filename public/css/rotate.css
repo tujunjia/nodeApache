@@ -1,15 +1,79 @@
-html body {
-  background-color: teal;
+body,div{margin:0;padding:0;background:teal;}
+.flip_wrap{
+  display: inline-block;
+  width:300px;
+  height:220px;
+  margin:50px;
+  perspective:800px;/*perspective属性定义3D元素距视图的距离,以像素计。该属性允许您改变 3D 元素查看 3D 元素的视图。*/
+  -webkit-perspective:800px;
+  -moz-perspective:800px;
+  -ms-perspective:800px;
+  -o-perspective:800px;
+  box-sizing:border-box;
+}
+.flip{
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;/*背对屏幕时隐藏*/
+  -webkit-backface-visibility:hidden;
+  -moz-backface-visibility:hidden;
+  -ms-backface-visibility:hidden;
+  -o-backface-visibility:hidden;
+  transition: all 1s ease; /*为翻牌添加过渡效果*/
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transform-style: preserve-3d; /*子元素将保留其 3D 位置。*/
+}
+.side{
+  width:100%;
+  height:100%;
+  position: absolute;/*让背面和正面重叠*/
+  left: 0;
+  top: 0;
+  font-size: 16px;
+  color:#fff;
+  text-align: center;
+}
+.front{
+  border: 1px solid #333;
+  font-size: 18px;
+  background:rgba(255,192,203,0.4);
+}
+.front p{
+  dispaly:block;
+  margin:80px auto;
+}
+.back{
+  backface-visibility:hidden;/*背对屏幕时隐藏*/
+  -webkit-backface-visibility:hidden;
+  -moz-backface-visibility:hidden;
+  -ms-backface-visibility:hidden;
+  -o-backface-visibility:hidden;
+  -webkit-transform:rotateY(180deg);
+  -moz-transform:rotateY(180deg);
+  -ms-transform:rotateY(180deg);
+  -o-transform:rotateY(180deg);
+  background: rgba(227, 222, 244, 0.14);
+  padding: 0 36px;
+  box-sizing:border-box;
+}
+.back span{
+ display: block;
+ margin: 40px 0px;
+ font-size: 18px;
+ color: #00c1DE
+}
+.back p{
+ display: block;
+ margin: 4px 0;
+}
+.flip_wrap:hover .flip{
+  transform:rotateY(180deg);
+  -webkit-transform:rotateY(180deg);
+  -moz-transform:rotateY(180deg);
+  -ms-transform:rotateY(180deg);
+  -o-transform:rotateY(180deg);
 
-}
-.container {
-  width: 300px;
-  height: 300px;
-  margin: 50px auto 0px auto;
-}
-.front {
-  width: 100%;
-  height: 100%;
-  background-color: bisque;
-  
-}
+}  
