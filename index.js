@@ -18,7 +18,7 @@ server.on('request',function(req, res){
   res.setHeader('Content-Type', 'text/html');  //设置数据返回的格式
   var url = req.url
   var pathurl = urlperson.parse(url)
-  var pathurall = urlperson.parse(url) 
+  var pathurall = urlperson.parse(url)
   
   var pathurl = pathurl.pathname
   // console.log(pathurl)
@@ -82,7 +82,15 @@ server.on('request',function(req, res){
     }
     res.end (data)
    })
-  }  else if (pathurl === '/published/') {
+  } else if (pathurl === '/rotate/') {
+    console.log('来到rotate页面')
+    fs.readFile('./view/rotate.html', function(error, data){
+    if (error) {
+      return res.end ('404 cosole')
+    }
+    res.end (data)
+   })
+  } else if (pathurl === '/published/') {
     var pramas = pathurall.query
     console.log(pathurall)
     // console.log(pramas)
