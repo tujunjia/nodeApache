@@ -13,6 +13,11 @@ var wwwpath = 'D:\\www\\nodeApache'
 //创建一个http服务
 var server = http.createServer()
 
+
+//自创建模块加载
+var str = require('./item.js')
+console.log(str)
+
 server.on('request',function(req, res){
   
   res.setHeader('Content-Type', 'text/html');  //设置数据返回的格式
