@@ -5,7 +5,6 @@ var fs = require('fs')
 //引入art-template核心模块
 var aTemplate = require("art-template");
 
-
 var urlperson = require('url')
 
 //www目录地址path
