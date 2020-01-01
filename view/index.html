@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/public/css/index.css">
 
   <script src="/public/js/index.js"></script>
+  <script src="/public/template-web.js"></script>
   <title></title>
 </head>
 <body>
@@ -25,6 +26,17 @@
         <div class="item"><%= i %> <%= data[i] %></div>
       <% } %>
   </div>
+  <h2>前端art-template渲染</h2>
+    <script id="artBox" type="text/html">
+      {{each data}}
+      <div class="classify">
+        <a href="javascript:;">
+        <img src="{{$value.category_image}}" alt="">
+        <p class="index-class-text">{{$value.name}}</p>
+        </a>
+      </div>
+      {{/each}}
+    </script>
   <div class="content">
   </div>
   <a href="/item/">item</a>
