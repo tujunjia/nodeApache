@@ -107,5 +107,6 @@ dist
 .vscode-test
 
 # My configurations:
-db.ini
-deploy_key_rsa
+# db.ini
+node_modules/
+express-demo/node_modules/
