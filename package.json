@@ -1,0 +1,24 @@
+{
+  "name": "nodeApache",
+  "version": "1.0.0",
+  "description": "用node.js搭建自己的Apache服务器",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tujunjia/nodeApache.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tujunjia/nodeApache/issues"
+  },
+  "homepage": "https://github.com/tujunjia/nodeApache#readme",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "express": "^4.17.1"
+  }
+}

@@ -3,7 +3,9 @@ var http = require('http')
 //引入fs核心模块
 var fs = require('fs')
 //引入art-template核心模块
+// var aTemplate = require("./public/js/template-web");
 var aTemplate = require("art-template");
+
 
 var urlperson = require('url')
 
