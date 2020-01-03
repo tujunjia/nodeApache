@@ -17,7 +17,6 @@ var server = http.createServer()
 
 //自创建模块加载
 var str = require('./item.js')
-console.log(str)
 
 server.on('request',function(req, res){
   

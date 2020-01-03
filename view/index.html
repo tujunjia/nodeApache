@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="/public/css/index.css">
 
   <script src="/public/js/jquery.min.js"></script>
-  <script src="/public/js/index.js"></script>
   <script src="/public/js/template-web.js"></script>
+  <script src="/public/js/index.js"></script>
   <title></title>
 </head>
 <body>
@@ -19,13 +19,13 @@
   <img src="/public/img/1.png" />    
   <img src="/public/img/3.png" />    
   <div class="box">
-      {{each data}}
-      <div class="item">{{$index}} {{$value}}</div>
-      {{/each}}
-      <hr>
-      <% for(var i = 0; i < data.length; i++){ %>
-        <div class="item"><%= i %> <%= data[i] %></div>
-      <% } %>
+    {{each data}}
+    <div class="item">{{$index}} {{$value}}</div>
+    {{/each}}
+    <hr>
+    <!-- <% for(var i = 0; i < data.length; i++){ %>
+      <div class="item"><%= i %> <%= data[i] %></div>
+    <% } %> -->
   </div>
   <h2>前端art-template渲染</h2>
   <script id="artBox" type="text/html">
