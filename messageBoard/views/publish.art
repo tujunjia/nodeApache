@@ -8,10 +8,11 @@
   <title>{{title}}</title>
 </head>
 <body>
+  <h2>请发表您的评论</h2>
   <div class="formbox">
     <form action="/publish/" method="GET">
-      <input name="name" type="text" placeholder="请输入姓名">
-      <input name="content" type="text" placeholder="请输入内容">
+      <input name="title" type="text" placeholder="请输入姓名">
+      <input name="message" type="text" placeholder="请输入内容">
       <button type="submit">提交</button>
     </form>
   </div>

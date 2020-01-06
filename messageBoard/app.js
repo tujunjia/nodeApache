@@ -51,6 +51,8 @@ var comment = [
 app.use('/public/', express.static('./public/'))
 //路由主页
 app.get('/', function(req, res){
+  console.log('comment==>',comment)
+
   res.render('index.art', {
     comment:comment,
     title:"评论首页",
@@ -59,7 +61,6 @@ app.get('/', function(req, res){
 //评论页面路由
 app.get('/comment/', function(req, res){
   res.render('publish.art', {
-    
     title:"评论添加页面",
   })
 })
@@ -67,8 +68,11 @@ app.get('/comment/', function(req, res){
 //路由评论发表(get)
 app.get('/publish/', function(req, res){
   var dataComment = req.query
-  // dataComment.dataTime = 202002060
-  // comment = comment.unshift(dataComment)
+  console.log('dataComment==>',dataComment)
+  dataComment.dataTime = '2020/01/06'
+  comment.unshift(dataComment)
+  console.log('comment in publish==>',comment)
+
   // res.status(302)
   // res.statusCode('301')
     res.statusCode = 302
