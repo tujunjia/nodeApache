@@ -10,7 +10,7 @@
 <body>
   <h2>欢迎来到留言板首页</h2>
   <div class="content">
-    {{each comment value index}}
+    {{each comment}}
     <p class="p1"><span class="s1">{{$index}}</span><span class="s2">{{$value.title}}</span><span class="s3">{{$value.message}}</span></p>
     {{/each}}
   </div>
