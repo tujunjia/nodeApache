@@ -9,9 +9,15 @@
 </head>
 <body>
   <h2>欢迎来到留言板首页</h2>
+  <a href="/comment/">添加评论</a>
   <div class="content">
     {{each comment}}
-    <p class="p1"><span class="s1">{{$index}}</span><span class="s2">{{$value.title}}</span><span class="s3">{{$value.message}}</span></p>
+    <p class="p1">
+      <span class="s1">{{$index}}{{$value.title}}</span>
+      <span class="s2">{{$value.message}}</span>
+      <span class="s3">>>{{$value.dataTime}}</span>
+    </p>
+    <hr>
     {{/each}}
   </div>
 </body>

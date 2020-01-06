@@ -13,47 +13,72 @@ var comment = [
   {
     title:'张三',
     message:'评论内容',
-    datsTime:'2020-01-06'
+    dataTime:'2020-01-06'
   },
   {
     title:'张四',
     message:'评论内容',
-    datsTime:'2020-01-06'
+    dataTime:'2020-01-06'
   },
   {
     title:'张五',
     message:'评论内容',
-    datsTime:'2020-01-06'
+    dataTime:'2020-01-06'
   },
   {
     title:'张六',
     message:'评论内容',
-    datsTime:'2020-01-06'
+    dataTime:'2020-01-06'
   },
   {
     title:'张三',
     message:'评论内容',
-    datsTime:'2020-01-06'
+    dataTime:'2020-01-06'
   },
   {
     title:'张三',
     message:'评论内容',
-    datsTime:'2020-01-06'
+    dataTime:'2020-01-06'
   },
   {
     title:'张三',
     message:'评论内容',
-    datsTime:'2020-01-06'
+    dataTime:'2020-01-06'
   },
   
 ]
-
-//路由
+//开放静态资源文件
+app.use('/public/', express.static('./public/'))
+//路由主页
 app.get('/', function(req, res){
   res.render('index.art', {
     comment:comment,
     title:"评论首页",
   })
+})
+//评论页面路由
+app.get('/comment/', function(req, res){
+  res.render('publish.art', {
+    
+    title:"评论添加页面",
+  })
+})
+
+//路由评论发表(get)
+app.get('/publish/', function(req, res){
+  var dataComment = req.query
+  // dataComment.dataTime = 202002060
+  // comment = comment.unshift(dataComment)
+  // res.status(302)
+  // res.statusCode('301')
+    res.statusCode = 302
+    res.setHeader('location','/')
+    res.end()
+})
+
+//路由评论发表(post)
+app.post('/publish', function(req, res){
+  
 })
 
 

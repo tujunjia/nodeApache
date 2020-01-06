@@ -1,0 +1,12 @@
+body {
+  background-color: #cccccc;
+}
+h2 {
+  text-align: center;
+}
+.formbox {
+  width: 500px;
+  height: auto;
+  margin: 0px auto;
+  margin-top: 50px;
+}

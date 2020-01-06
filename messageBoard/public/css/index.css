@@ -10,3 +10,10 @@ h2 {
   margin: 0px auto;
   margin-top: 50px;
 }
+.content .p1 {
+  font-size: 20px;
+}
+.content .p1 .s3{
+  float: right;
+  font-size: 14px;
+}

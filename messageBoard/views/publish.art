@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/public/css/publish.css">
+  <title>{{title}}</title>
+</head>
+<body>
+  <div class="formbox">
+    <form action="/publish/" method="GET">
+      <input name="name" type="text" placeholder="请输入姓名">
+      <input name="content" type="text" placeholder="请输入内容">
+      <button type="submit">提交</button>
+    </form>
+  </div>
+</body>
+</html>
