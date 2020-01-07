@@ -1,8 +1,9 @@
 //引包
 var express = require('express')
-
+//模板包引用
 var artTemplate = require('art-template')
-
+//body-parser引入
+var bodyParser = require('body-parser')
 
 var app = express()
 
@@ -76,13 +77,23 @@ app.get('/publish/', function(req, res){
   // res.status(302)
   // res.statusCode('301')
     res.statusCode = 302
-    res.setHeader('location','/')
+    res.setHeader('location', '/')
     res.end()
 })
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 //路由评论发表(post)
 app.post('/publish', function(req, res){
-  
+  var dataComment = req.body
+  dataComment.dataTime = '2020/01/06'
+  comment.unshift(dataComment)
+  res.statusCode = 302
+  res.setHeader('location', '/')
+  res.end()
 })
 
 
