@@ -96,8 +96,9 @@ app.post('/publish', function(req, res){
   res.end()
 })
 
-
-//端口监听
+/**
+ * 端口监听
+ */
 app.listen('3000', function(error, data){
   if (error) {
     return console.log(error)

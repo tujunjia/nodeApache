@@ -110,3 +110,4 @@ dist
 # db.ini
 node_modules/
 express-demo/node_modules/
+crud-express/node_modules/
