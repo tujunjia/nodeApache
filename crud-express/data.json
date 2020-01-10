@@ -1,0 +1,40 @@
+{
+  "students": [
+    {
+      "name": "张三",
+      "age": 18,
+      "gender": 0
+
+    },
+    {
+      "name": "张三",
+      "age": 18,
+      "gender": 0
+
+    },
+    {
+      "name": "张三",
+      "age": 18,
+      "gender": 0
+
+    },
+    {
+      "name": "张三",
+      "age": 18,
+      "gender": 0
+
+    },
+    {
+      "name": "张三",
+      "age": 18,
+      "gender": 0
+
+    },
+    {
+      "name": "张三",
+      "age": 18,
+      "gender": 0
+
+    }
+  ]
+}
