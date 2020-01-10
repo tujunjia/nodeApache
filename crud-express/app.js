@@ -12,13 +12,15 @@ app.get('/', function(req, res){
     if (error) {
       return  res.statusCode('500').end('data文件读取错误')
     }
+    console.log(data)
+    console.log(typeof data)
+    var students = JSON.parse(data)
+    console.log(students)
+    console.log(typeof students)
+
     app.engine('html', require('express-art-template'));
-    artTemplate.render('index.html', function(error, data){
-      if (error) {
-        return  res.statusCode('500').end('服务器升级')
-      }
-      console.log(data)
-      res.end('hello index')
+    res.render('index.html', {
+      students:students,
     })
 
   })
