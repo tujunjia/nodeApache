@@ -7,14 +7,15 @@ var dataPath = './data.json'
  * return[]
  * 
  */
-exports.find(function( callback ){
-  fs.readFile(dataPath, function(error, data){
+exports.find = function( callback ){
+  fs.readFile(dataPath, 'utf8', function(error, data){
     if ( error ) {
     return  callback(error)
     }
-    callback(null, data)
+    var students = JSON.parse(data).students
+    callback(null, students)
   })
-})
+}
 
  /**
  * 学生信息存储的方法
@@ -33,5 +34,8 @@ exports.find(function( callback ){
  * return[]
  * 
  */
+
+
+ 
 
  

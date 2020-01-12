@@ -1,9 +1,8 @@
 //模块的引用
 var express = require('express')
 var fs = require('fs')
-var artTemplate = require('art-template')
-// var artTemplate = require('express-art-template')
-
+//作者的模块方法加载
+var Student = require('./student.js')
 //创建路由容器
 var router = express.Router()
 //实例化服务
@@ -14,17 +13,14 @@ var app = express()
  *首页渲染路由 
  */
 router.get('/students', function(req, res) {
-  fs.readFile('./data.json', 'utf-8', function(error, data){
-    if (error) {
-      return  res.status('500').end('data文件读取错误')
-    }
-    var students = JSON.parse(data).students
-    console.log(students)
-    res.render('index.html', {
-      students:students,
-    })
-  })
-  
+    Student.find(function (error, students) {
+      if (error) {
+        return  res.status('500').end('data文件读取错误')
+      }
+      console.log(students)
+      res.render('index.html', {
+        students:students,
+      })})
 })
 
 /**
