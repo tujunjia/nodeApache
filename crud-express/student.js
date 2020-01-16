@@ -23,6 +23,27 @@ exports.find = function( callback ){
  * 
  */
 
+ exports.save = function(stuData,callback ) {
+  fs.readFile(dataPath, 'utf8', function(error, data){
+    if ( error ) {
+    return  callback(error)
+    }
+    var students = JSON.parse(data).students
+    stuData.id = students[0].id+1
+    // stuData.id = students[students.length-1].id+1
+    students.unshift(stuData)
+    var fileData = JSON.stringify({
+      students: students
+    })
+    fs.writeFile(dataPath, fileData, function(error) {
+      if (error) {
+      return  callback(error)
+      }
+      callback(null)
+    })
+  })
+ }
+
  /**
  * 学生信息更新的方法
  * return[]
